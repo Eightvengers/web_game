@@ -1,0 +1,673 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#app {
+    background-color: #171717;
+    width: 100%;
+    height: 100%;
+}
+
+.header {
+    /* position: relative; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 64px;
+    background: #222222;
+}
+
+.header__logo {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+
+.header__logo img {
+    margin-left: 16px;
+    height: 70px;
+}
+
+.header__logo .hear__search {
+    background-color: #333333;
+    width: 230px;
+    height: 40px;
+    border-radius: 20px;
+}
+
+.header__logo input {
+    border : none;
+    outline : 0;
+    background-color : transparent !important;
+    height: 100%;
+    margin-left: 15px;
+    margin-top: -1px;
+    width: 75%;
+    color : #fff;
+    font-size : 16px;
+}
+
+.header .header__options ul{
+    display: flex;
+    color : #fff;
+    list-style: none; 
+}
+
+.header__options ul li{
+    display: block;
+    font-size: 16px;
+    padding: 10px 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border: solid 2px #ccc;
+    border-radius: 5px;
+    background-color: #333333;
+    cursor: pointer;
+    /* animation: all linear 2s; */
+}
+
+.header__options ul li:hover{
+    background-color: #e43d30;
+    border: solid 2px #e43d30;
+}
+
+.header__options ul li .donate_qr_code {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    top : 130%;
+    right: -15%;
+    width: 220px;
+    padding: 7px;
+    background-color: #fff;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border-radius: 10px;
+    z-index: 2;
+    box-shadow: 0 2px 8px #ccc;
+    display: none;
+    opacity: 0;
+    transition: 0.5s;
+    transform-origin: 70% top;
+    animation: pop_qr ease-in 0.3s;
+}
+
+.header__options ul li .donate_qr_code::before{
+    content: "";
+    position: absolute;
+    border-width: 17px;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent;
+    top: -27px;
+    right : 50px;
+}
+
+@keyframes pop_qr {
+    from {
+        transform :scale(0);
+    }
+    to {
+        transform :scale(1);
+        
+    }
+}
+
+.header__options ul li .donate_qr_code img {
+    width: 97%;
+    /* margin-top: 10px; */
+    border-radius: 7px;
+}
+
+.header__options ul li .donate_qr_code p {
+    color: #333333;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+.donate:hover .donate_qr_code {
+    opacity: 1;
+    display: flex;
+}
+
+.header__options ul li i {
+    margin-left: -2px;
+    margin-right: 4px;
+}
+
+.header__options ul li:last-child {
+    border: none;
+    padding: 10px 15px;
+    background-color: #e43d30;
+}
+
+.header__options ul li:last-child i {
+    margin: 2px 2px 2px 0px;
+}
+
+.header__options ul li:last-child:hover {
+    background-color: #ff7777;
+}
+
+.game-type {
+    
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height : 56px;
+    background-color: #171717;
+    justify-content: space-between;
+    top : 64px;
+    color : #fff;
+}
+
+.game-type .game-type-list {
+    display : flex;
+    list-style: none;
+}
+
+.game-type-list li {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    font-size: 14px;
+    margin: 10px 8px;
+    width: 148px;
+    min-height: 34px;
+    border-radius: 18px;
+    border: solid 1px #333333;
+    background-color: #333333;
+    cursor: pointer;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.game-type .categories:hover,
+.game-type-list li:hover {
+    border: solid 1px #e43d30;
+}
+
+.game-type-list img {
+    margin: 0px 8px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+}
+
+.game-type-list li:last-child,
+.game-type-list li:first-child {
+    margin-left: 15px;
+    margin-right: 15px;
+    height: 36px;
+    width: 36px;
+}
+.game-type-list li:last-child i,
+.game-type-list li:first-child i{
+    font-size: 12px;
+    margin: auto;
+}
+
+.game-type .arrow-left,
+.game-type .arrow-right {
+    display: flex;
+    height: 36px;
+    width: 36px;
+    align-items: center;
+    justify-content: center;
+    background-color: #333333;
+    margin: 10px 16px 10px;
+    border-radius: 50%;
+}
+
+ .game-type .categories { 
+    display: flex;
+    align-items: center;
+    padding: 0px 20px;
+    margin: 10px 20px 10px 0px;
+    font-size: 14px;
+    background-color: #333333;
+    border-radius: 28px;
+    border: solid 1px #333333;
+}
+
+.game-type .categories i {
+    font-size: 14px;
+    margin-right: 8px;
+    margin-left: -8px;
+}
+
+.container {
+    margin-top: 150px;
+    padding-bottom: 50px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    /* text-align: center; */
+}
+.container .img-content{
+    margin-top: -30px;
+}
+
+.container__games {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-around; */
+    align-content: flex-start;
+    width: 70%;
+}
+
+.container__games .game-item {
+    position : relative;
+    width: 25%;
+    margin: 30px 43px;
+    background-color: #333333;
+    border-radius: 10px;
+    border: 3px solid #e43d30;
+    overflow: hidden;
+    box-shadow: 0 0 10px  rgb(228, 14, 14);
+
+}   
+
+.game-item img {
+    width: 100%;
+    height: 100%;
+    border-radius: 7px;
+}
+
+/* Khong can - START*/
+
+.game-content {
+    /* padding: 10px; */
+    /* background-color: #333333; */
+}
+
+.game-content .game-name {
+    font-size: 20px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.game-content .play-game-btn {
+    border: none;
+    outline: 0;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+/* Khong can - END */
+.play-game-btn {
+    border: none;
+    outline: 0;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.play-game-btn:hover {
+    background-color: #e43d30;
+    cursor: pointer;
+    color: #fff;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.overlay_hover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    right: -100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    backdrop-filter: blur(2px);
+    transition: 0.7s;
+}
+
+.overlay_hover span {
+    margin-top: -20px;
+    margin-bottom: 10px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+}
+.game-item:hover {
+    box-shadow: 0 0 10px  rgb(84, 211, 225);
+    border: 3px solid #032407;
+}
+
+
+.game-item:hover .overlay_hover {
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.footer {
+    background-color: #111111;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.footer .social-icon {
+    display: flex;
+    flex-direction: row;
+}
+
+.footer .social-icon a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #111;
+    font-size: 30px;
+    margin: 20px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+/* Hover Effects on Social Media Icon */
+.footer .social-icon a:hover {
+    background-color: #111;
+    color: #fff;
+    transition : 0.5s;
+}
+
+.footer .footer-nav {
+    margin: 15px 0px;
+}
+
+.footer .footer-nav ul{
+    display: flex;
+    list-style: none;
+    
+}
+
+.footer-nav ul li {
+    color: #fff;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 20px;
+    text-decoration: none;
+    font-size: 24px;
+    opacity: 0.7;
+    transition : 0.5s;
+}
+
+.footer-nav ul li:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.footer .footer-bottom {
+    background-color: #000;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer .footer-bottom p { 
+    color: #fff;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+}
+
+.footer-bottom p .designer {
+    text-decoration: underline;
+    letter-spacing: 1px;
+    opacity: 0.7;
+    text-transform: uppercase;
+    padding: 0 5px;
+}
+
+/* DUCANH CODING */
+.model{
+    position: fixed;
+    z-index: 12px;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+     display: none; 
+     
+    background-color: rgba(12, 42, 71, 0.5);
+}
+.open{
+    display: block;
+}
+.model .header-model{
+    /* border: 5px  solid rgb(4, 68, 68); */
+   
+    /* height: 50px; */
+    /* background-color: rgb(7, 7, 35); */
+}
+.model .subModel{
+    margin-left: auto;
+     margin-right: auto;
+    /* margin-top: 40px; */
+    /* width: 800px; */
+    /* width: 1000px; */
+    /* width: 100%; */
+    /* min-height: 100px; */
+    height: 700px;
+    background-color: aliceblue;
+    box-shadow: 0 0 70px  rgb(52, 50, 138);
+    border: 5px  solid rgb(4, 68, 68);
+    animation: modelFace ease 0.7s;
+    position: relative;
+}
+.big{
+    width: 1000px;
+    margin-top: 30px;
+}
+
+.model .subModel .header{
+    height: 30px;
+    width: 100%;
+    background-color: rgb(12, 10, 41);
+}
+.model .subModel .close,
+.model .subModel .icon-phong,
+.model .subModel .icon0,
+.model .subModel .icon-thu{
+     color: rgb(250, 250, 250);
+     line-height: 30px;
+     padding:0 10px;
+     font-weight: 900;
+}
+.model .subModel .icon-phong{
+    position: absolute;
+     top: 0;
+     right: 36px;
+     font-size: 10px;
+}
+.model .subModel .icon-thu{
+    position: absolute;
+     top: 0;
+     right: 72px;
+     font-size: 10px;
+}
+.model .subModel .close{
+     position: absolute;
+     top: 0;
+     right: 0px;
+     font-size: 12px;
+}
+
+
+
+.model .subModel .close:hover{
+    cursor: pointer;
+    background-color: #e43d30;
+}
+.model .subModel .icon-thu:hover,
+.model .subModel .icon-phong:hover{
+    cursor: pointer;
+    background-color: #947c7a36;
+}
+.model .subModel .icon0:hover{
+    cursor: pointer;
+}
+
+
+
+.model .subModel .content{
+    color: aliceblue;
+}
+
+
+.model .subModel .gamee{
+    height: 100%;
+}
+@keyframes modelFace{
+    from{
+        transform: translateY(-30%);
+       
+    }
+    to{
+         transform: translateY(2px);
+    }
+}
+
+
+
+.model-login{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000000a6;
+    z-index: 1;
+    display: none;
+}
+
+
+
+.oppen{
+    display: block;
+}
+
+
+.model-login .subModel{
+    /* color: #ccc; */
+    width: 400px;
+    height: 500px;
+    background-color: #eeeeeef0;
+    position: absolute;
+    left: 37%;
+    transform: translateX(-50%);
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 15px;
+    border-radius: 18px;
+    box-shadow:10px 10px 10px 10px rgb(0, 0, 0);
+}
+.model-login .subModel .closee{
+    float: right;
+    margin-top: 3px;
+    margin-right: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    display: inline-block;
+    font-weight: 600;
+}
+.model-login .subModel .closee:hover{
+    background-color: #d33838;
+    color: #fff;
+}
+
+
+.model-login .subModel .avt-login{
+    background-color: #1e5124;
+    width: 100%;
+    height: 70px;
+}
+
+.model-login .subModel h2{
+    margin-bottom: 20px;
+    margin-top: 30px;
+    text-align: center;
+    font-size: 50px;
+    color:rgb(51, 138, 246);
+}
+.subModel .content{
+    margin-left: 50px;
+}
+.model-login .icon{
+    margin-right: 10px;
+}
+
+
+#username,
+#password{
+    margin-top: 10px;
+    /* color: #fff; */
+    border: none;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    margin-bottom: 10px;
+    width: 300px;
+    padding: 8px 0;
+    border-radius: 10px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffffff00;
+    padding-left: 20px;
+}
+
+.model-login .subModel button{
+    width: 300px;
+    height: 40px;
+    border-radius: 20px;
+    font-size: 18px;
+    background-color: rgb(34, 122, 228);
+    color: #fff;
+    border: #ccc;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 40px;
+}
+.model-login .subModel button:hover{
+    cursor: pointer;
+    background-color: rgb(70, 135, 214);
+    
+}
+
+.model-login .subModel .miss{
+    margin-left: 50px;
+    margin-top: 20px;
+    
+}
+.model-login .subModel .help{
+    position: absolute;
+    right: 55px;
+    bottom: 70px;
+    /* color: #ff11d3; */
+}
+#login-form{
+    margin-top: 50px;
+}
+#login-status{
+    position: absolute;
+    bottom: 30px;
+    left: 5px;
+    color: #e2160b;
+    margin-left: 30px;
+}
+
+.oppen{
+    display: block;
+}
