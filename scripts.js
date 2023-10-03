@@ -240,6 +240,7 @@ function checkLogin(){
    if (username === "123" && password === "123") {
        document.getElementById("login-status").innerText = "Đăng nhập thành công!";
        window.location.href = "http://127.0.0.1:5500/LogIn.html";
+       alert('Bạn đã đăng nhập thành công')
        // Điều hướng hoặc thực hiện hành động sau khi đăng nhập ở đây.
    } else {
        document.getElementById("login-status").innerText = "Thông tin đăng nhập không hợp lệ !";
@@ -257,3 +258,14 @@ function showSmall9(){
 }
 login.addEventListener('click',them)
 close_login.addEventListener('click',showSmall9)
+
+
+
+function logout() {
+   var okey=confirm('Bạn thực sự muốn đăng xuất.')
+   if(okey){
+      window.location.href = "http://127.0.0.1:5500/index.html";
+        }
+   }
+   // Điều hướng đến trang đăng xuất bằng đường link
+   
