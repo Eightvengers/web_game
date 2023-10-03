@@ -69,10 +69,29 @@
     cursor: pointer;
     /* animation: all linear 2s; */
 }
+.header__options ul .logout{
+    background-color: #96b39a0f;
+       padding: 2px 16px;
+       font-size: 16px;
+       border-radius: 4px;
+       margin-right: 5px;
+       border: 2px solid rgb(240, 240, 234);
+       color: #d5d4d4;
+       cursor: pointer;
+       font-weight: 550;
+}
+.header__options ul .logout:hover{
+    background-color: #e43d30;
+    border: 2px solid #e43d30;
+   
+}
+
+
 
 .header__options ul li:hover{
-    background-color: #e43d30;
-    border: solid 2px #e43d30;
+    background-color: rgb(84, 211, 225);
+    color: #000;
+    border: solid 2px rgb(84, 211, 225);
 }
 
 .header__options ul li .donate_qr_code {

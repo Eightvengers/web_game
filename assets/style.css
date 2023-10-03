@@ -573,7 +573,18 @@
     font-size: 15px;
     border-radius: 18px;
     box-shadow:10px 10px 10px 10px rgb(0, 0, 0);
+    animation:modelLogin ease 0.9s;
 }
+@keyframes modelLogin{
+    from{
+        transform: translateY(-200%);
+       
+    }
+    to{
+         transform: translateY();
+    }
+}
+
 .model-login .subModel .closee{
     float: right;
     margin-top: 3px;
