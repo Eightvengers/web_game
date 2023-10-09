@@ -542,7 +542,20 @@
 
 
 
+
+/* start modal login */
 .model-login{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000000a6;
+    z-index: 1;
+    display: none;
+}
+
+.model-recovery{
     position: fixed;
     top: 0;
     left: 0;
@@ -575,6 +588,27 @@
     box-shadow:10px 10px 10px 10px rgb(0, 0, 0);
     animation:modelLogin ease 0.9s;
 }
+
+.model-recovery .subModel{
+    /* color: #ccc; */
+    width: 400px;
+    height: 420px;
+    background-color: #eeeeeef0;
+    position: absolute;
+    left: 37%;
+    transform: translateX(-50%);
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 15px;
+    border-radius: 18px;
+    box-shadow:10px 10px 10px 10px rgb(0, 0, 0);
+    animation:modelLogin ease 0.9s;
+}
+
+.model-recovery .subModel button {
+    margin-top : 30px !important;
+}
+
 @keyframes modelLogin{
     from{
         transform: translateY(-200%);
@@ -620,7 +654,9 @@
     margin-right: 10px;
 }
 
-
+#email-ip,
+#username-ip,
+#password-ip,
 #username,
 #password{
     margin-top: 10px;
@@ -681,4 +717,101 @@
 
 .oppen{
     display: block;
+}
+
+/* Forgot password */
+.forgot {
+    position: absolute;
+    bottom: 208px;
+    right: 40px;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.forgot:hover { 
+    color: #2323ec;
+}
+
+.model-recovery .subModel button{
+    width: 300px;
+    height: 40px;
+    border-radius: 20px;
+    font-size: 18px;
+    background-color: rgb(34, 122, 228);
+    color: #fff;
+    border: #ccc;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 40px;
+}
+.model-recovery .subModel button:hover{
+    cursor: pointer;
+    background-color: rgb(70, 135, 214);
+    
+}
+
+.model-recovery .subModel .miss{
+    margin-left: 50px;
+    margin-top: 20px;
+    
+}
+.model-recovery .subModel .help{
+    position: absolute;
+    right: 55px;
+    bottom: 70px;
+    /* color: #ff11d3; */
+}
+#login-form{
+    margin-top: 50px;
+}
+#login-status{
+    position: absolute;
+    bottom: 30px;
+    left: 5px;
+    color: #e2160b;
+    margin-left: 30px;
+}
+
+.model-recovery .subModel .closee{
+    float: right;
+    margin-top: 3px;
+    margin-right: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    display: inline-block;
+    font-weight: 600;
+}
+.model-recovery .subModel .closee:hover{
+    background-color: #d33838;
+    color: #fff;
+}
+
+
+.model-recovery .subModel .avt-login{
+    background-color: #1e5124;
+    width: 100%;
+    height: 70px;
+}
+
+.model-recovery .subModel h2{
+    margin-bottom: 20px;
+    margin-top: 30px;
+    text-align: center;
+    font-size: 50px;
+    color:rgb(51, 138, 246);
+}
+.subModel .content{
+    margin-left: 50px;
+}
+.model-recovery .icon{
+    margin-right: 10px;
+}
+
+#reco-status{
+    position: absolute;
+    bottom: 22px;
+    left: 5px;
+    color: #e2160b;
+    margin-left: 30px;
 }

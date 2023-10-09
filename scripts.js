@@ -1,3 +1,87 @@
+
+console.log('aaaa')   
+   let x = document.getElementsByClassName("game-item");
+   console.log(x)
+
+
+// Donate Hub
+var donate_option = document.querySelector(".donate");
+document.querySelector(".donate_hub").onclick = function(){
+   event.preventDefault();
+}
+
+donate_option.onclick = function(e){
+   // console.log(this.childNodes.classList.contains("donate_hub"))
+   this.classList.add("focus");
+   document.querySelector(".donate_qr_code").classList.add("force_display_none");
+   document.querySelector(".donate_hub").classList.add("openn");
+   console.log("1")
+}
+
+var close_donate_hub = document.querySelector(".close_donate_hub");
+close_donate_hub.onclick = function(e){
+   donate_option.classList.remove("focus");
+   document.querySelector(".donate_qr_code").classList.remove("force_display_none");
+   document.querySelector(".donate_hub").classList.remove("openn");
+   console.log(2)
+   e.stopPropagation();
+}
+
+var donate_btn = document.querySelector(".donate_btn");
+var user_coin = localStorage.getItem("user_coin");
+user_coin = JSON.parse(user_coin);
+var cur_coin = user_coin.cur_coin;
+document.querySelector(".cur_coin").innerText = cur_coin;
+var donated_coin = user_coin.donated_coin;
+document.querySelector(".donated_coin").innerText = donated_coin;
+donate_btn.onclick = function(){
+    var amount = document.querySelector(".valuee").value;
+    var err_msg = document.querySelector(".err_msg");
+    if(!(parseInt(amount))){
+        err_msg.innerText = "Coin khong hop le";
+    }
+    else if(parseInt(amount) > parseInt(cur_coin)) {
+        err_msg.innerText = "Ban khong du coin";
+    }
+    else if(parseInt(amount) <= parseInt(cur_coin)){
+        document.querySelector(".valuee").value = '';
+        document.querySelector(".cur_coin").innerText = `${cur_coin - amount}`;
+        document.querySelector(".donated_coin").innerText = `${parseInt(donated_coin) + parseInt(amount)}`;
+        cur_coin = cur_coin - amount;
+        donated_coin = parseInt(donated_coin) + parseInt(amount);
+        user_coin = {
+            cur_coin: cur_coin,
+            donated_coin: donated_coin
+        };
+        err_msg.innerText = "";
+        var json = JSON.stringify(user_coin);
+        localStorage.setItem("user_coin", json);
+        alert("Cam on ban da ung ho chung toi");
+    }
+
+}
+
+
+
+// End donate_hub
+
+function search_bar(e) {
+   event.preventDefault();
+   let input = document.getElementById('search_bar').value;
+   input = input.toLowerCase();
+   let x = document.getElementsByClassName("game-item");
+   for(var i = 0; i < x.length; i++){
+      if(!x[i].children[0].getElementsByTagName('span')[0].innerText.toLowerCase().includes(input)){
+         x[i].style.display ='none';
+      }
+      else {
+         x[i].style.display = 'block';
+      }
+   }
+}
+
+
+
 const playgame1=document.querySelector('.js-play1')
 const playgame2=document.querySelector('.js-play2')
 const playgame3=document.querySelector('.js-play3')
@@ -77,23 +161,23 @@ function closeGame3(){
    modal3.classList.remove('open')
 }
 function closeGame4(){
-    modal4.classList.remove('open')
- }
- function closeGame5(){
-    modal5.classList.remove('open')
- }
- function closeGame6(){
-    modal6.classList.remove('open')
- }
- function closeGame7(){
-    modal7.classList.remove('open')
- }
- function closeGame8(){
-    modal8.classList.remove('open')
- }
- function closeGame9(){
-    modal9.classList.remove('open')
- }
+   modal4.classList.remove('open')
+}
+function closeGame5(){
+   modal5.classList.remove('open')
+}
+function closeGame6(){
+   modal6.classList.remove('open')
+}
+function closeGame7(){
+   modal7.classList.remove('open')
+}
+function closeGame8(){
+   modal8.classList.remove('open')
+}
+function closeGame9(){
+   modal9.classList.remove('open')
+}
  
 
 
@@ -255,6 +339,7 @@ function them(){
 }
 function showSmall9(){
    modal_login.classList.remove('oppen')
+   document.querySelector('.model-recovery').remove('oppen')
 }
 login.addEventListener('click',them)
 close_login.addEventListener('click',showSmall9)
@@ -268,4 +353,15 @@ function logout() {
         }
    }
    // Điều hướng đến trang đăng xuất bằng đường link
+
+const forgot_pass = document.querySelector('.forgot')
+console.log(forgot_pass)
+forgot_pass.onclick = function(){
+   console.log(12213)
+   modal_login.classList.remove('oppen')
+   document.querySelector('.model-recovery').add('oppen')
+}
+
+
+
    
