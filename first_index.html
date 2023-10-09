@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eightvangers Game Web</title>
-    <link rel="stylesheet" href="./assets/login.css">
+    <link rel="stylesheet" href="./assets/style.css">
     <link rel="stylesheet" href="/assets/font/fontawesome-free-6.4.2-web/webfonts/icons-font/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="./assets/font/fontawesome-free-6.4.2-web/css/all.min.css">
 </head>
@@ -15,17 +15,12 @@
             <div class="header__logo">
                 <img src="/assets/images/logo.png" alt="Eightvangers Logo">
                 <div class="hear__search">
-                    <input id="search_bar" type="text" placeholder="search" onkeyup="search_bar()">                
+                    <input type="text" placeholder="search">                
                 </div>
             </div>
 
             <div class="header__options">
                 <ul>
-                    <button class="logout" onclick="logout()">Log out</button>
-                    <li>
-                        <!-- <i class="fa-solid fa-gamepad"></i> -->
-                        <a class="feed" href="https://docs.google.com/forms/d/e/1FAIpQLSd_6pl5qiptU8H2G97kw1dIIsRXtJ3RscZN_WVwVL5uV9mEjw/viewform" >Feedback</a>
-                    </li>
                     <li>
                         <i class="fa-solid fa-gamepad"></i>
                         Games
@@ -34,42 +29,17 @@
                         <i class="fa-solid fa-user-group"></i>
                         Multiplayer
                     </li>
-                    <li style="position:relative" class ="donate">
+                    <li style="position:relative" class = "donate">
                         <i class="fa-solid fa-circle-dollar-to-slot"></i>
                         Donate
-                        <div class="donate_qr_code">
+                        <!-- <div class="donate_qr_code">
+                            
                             <img src="./assets/images/z4693627166820_269b872462e032d1338500e28d6af9d7.jpg" alt="">
                             <p>Scan this QR Code for donation</p>
-                        </div>
-                        <div class="donate_hub">
-                            <div class="close_donate_hub">
-                                <i class="fa-regular fa-circle-xmark"></i>
-                            </div>
-                            <h3
-                            style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size:20px; letter-spacing:1px">
-                            Donate Hub</h3>
-                            <div class="donate_amount">
-                                <span style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; ">Amount : <input class ="valuee" type="text"></span>
-                            </div>
-                            <span class="err_msg"></span>
-                            <div class="donate_btn">
-                                <span style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Donate</span>
-                            </div>
-                        </div>
+                        </div> -->
                     </li>
-                    <li id="user">
-                        <div class="user_avt">
-                            <img src="./assets/images/user_img.jpg" alt="">
-                        </div>
-                        <div class="user_info">
-                            <span id="username " class="cur_username">Username: Do Quan</span>
-                            <br>
-                            <span>Level: 99</span>
-                            <br>
-                            <span>Current coin: <span class="cur_coin">1000</span>     <i class="fa-brands fa-bitcoin"></i></span>
-                            <br>
-                            <span>Donated: <span class="donated_coin">300</span>     <i class="fa-brands fa-bitcoin"></i></span>
-                        </div>
+                    <li class="js-login">
+                        <i class="fa-solid fa-right-to-bracket "></i>
                     </li>
                 </ul>
             </div>
@@ -198,11 +168,11 @@
 
         <div class="footer">
             <div class="social-icon">
-                <a href="http://127.0.0.1:5500/test.html"><i class="fa-brands fa-facebook"></i></a>
-                <a href="http://127.0.0.1:5500/test.html"><i class="fa-brands fa-instagram"></i></a>
-                <a href="http://127.0.0.1:5500/test.html"><i class="fa-brands fa-twitter"></i></a>
-                <a href="http://127.0.0.1:5500/test.html"><i class="fa-brands fa-github"></i></a>
-                <a href="http://127.0.0.1:5500/test.html"><i class="fa-brands fa-youtube"></i></a>
+                <a href=""><i class="fa-brands fa-facebook"></i></a>
+                <a href=""><i class="fa-brands fa-instagram"></i></a>
+                <a href=""><i class="fa-brands fa-twitter"></i></a>
+                <a href=""><i class="fa-brands fa-github"></i></a>
+                <a href=""><i class="fa-brands fa-youtube"></i></a>
             </div>
 
             <div class="footer-nav">
@@ -333,8 +303,8 @@
     <div class="subModel js-sub9">
        <div class="header">
               <i class="icon0 ti-help-alt"></i>
-               <i class="icon-thu ti-layout-line-solid js-small9"></i>
-               <i class="icon-phong ti-layout-width-full js-big9"></i>   
+              <i class="icon-thu ti-layout-line-solid js-small9"></i>
+              <i class="icon-phong ti-layout-width-full js-big9"></i>   
               <i class="close ti-close js-modal-close9"></i>
        </div>
        <iframe class="gamee" width="100%" height="100%" src="https://www.addictinggames.com/embed/html5-games/10000394" scrolling="no" style="border:none"></iframe>
@@ -342,10 +312,192 @@
     </div>
    </div>
    
-   
+   <div class="model-login js-moo ">
+       <div class="subModel">
+        <div class="avt">
+            <i class="closee ti-close js-closee"></i>
+        </div>
+            <h2 style="font-size:30px">Đăng Nhập</h2>
+            <form id="login-form">
+                <label class="content" for="username">
+                    <i class=" icon ti-user"></i>
+                    Tên tài khoản:</label>
+                <div></div>
+                <input type="text" id="username" required><br>
+                <label class="content" for="password">
+                    <i class="icon ti-lock"></i>
+                    Mật khẩu:</label>
+                <div></div>
+
+                <input type="password" id="password" required><br>
+                <input class="miss" type="checkbox" > Remember me <br>
+                <button type="button" onclick="checkLogin()">Login</button><br>           
+                    <a class="help" href="https://nguontinhyeu.com/chi-co-troi-cuu/">Need help ?</a>
+                    <div class="forgot">Forgot password ?</div>
+                <div id="login-status"></div>
+            </form>
+        </div>      
+   </div>
  
-    <script src = "./scripts.js"> 
-      
+    <!-- Recovery Password -->
+    <div class=" js-moo model-recovery" >
+        <div class="subModel">
+         <div class="avt">
+             <i class="closee ti-close js-close"></i>
+         </div>
+             <h2 style="font-size:30px">Lấy lại mật khẩu</h2>
+             <form id="recovery-form">
+                 <label class="content" for="username-ip">
+                     <i class=" icon ti-user"></i>
+                     Tên tài khoản:</label>
+                 <input type="text" id="username-ip" class="usip" required><br>
+
+                 <label class="content" for="email-ip">
+                    <i class=" icon ti-user"></i>
+                    Email:</label>
+                <input type="text" id="email-ip" class="emip" required><br>
+
+                 <label class="content" for="password-ip">
+                     <i class="icon ti-lock"></i>
+                     Mật khẩu mới:</label>
+
+                 <input type="password" id="password-ip" class="pwip" required><br>
+
+                 <button type="button" onclick="checkRecovery()">Done</button><br>           
+                 <div id="reco-status"></div>
+             </form>
+         </div>      
+    </div>
+    <script>
+        var user = {
+            username : '123',
+            email : '123@gmail.com',
+            password : '123'
+        }
+        var jsons = JSON.stringify(user);
+        localStorage.setItem('123',jsons);
+
+        function checkLogin(){
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            var users = localStorage.getItem(username);
+            console.log(users);
+            var data = JSON.parse(users);
+            console.log(data);
+            if (!users) {
+                const status = document.getElementById("login-status");
+                status.style.color = "red";
+                status.innerText = "Thông tin đăng nhập không hợp lệ !";
+            }
+            else if (password == ''){
+                const status = document.getElementById("login-status");
+                status.style.color = "red";
+                status.innerText = "Thông tin đăng nhập không hợp lệ !";
+            }
+            else if (username == data.username && password == data.password) {
+                const status = document.getElementById("login-status");
+                status.style.color = "green";
+                status.innerText = "Đăng nhập thành công!";
+                window.location.href = "http://127.0.0.1:5500/LogIn.html";
+            }
+
+            //if (username === "123" && password === "123") {
+            //    
+            //    const status = document.getElementById("login-status");
+            //    status.style.color = "green";
+             //   status.innerText = "Đăng nhập thành công!";
+             //   window.location.href = "http://127.0.0.1:5500/LogIn.html";
+            //
+           // } else {
+          //      const status = document.getElementById("login-status");
+          //      status.style.color = "red";
+         //       status.innerText = "Thông tin đăng nhập không hợp lệ !";
+          //  }
+        }
+        
+
+        const login=document.querySelector('.js-login')
+        const close_login=document.querySelector('.js-closee')
+        const modal_login=document.querySelector('.js-moo')
+        function them(){
+            modal_login.classList.add('oppen')
+        }
+        function showSmall9(){
+            modal_login.classList.remove('oppen')
+
+        }
+        login.addEventListener('click',them)
+        close_login.addEventListener('click',showSmall9)
+
+        // forgot
+        const forgot_pass = document.querySelector('.forgot')
+        console.log(forgot_pass)
+        forgot_pass.onclick = function(){
+            console.log(12213)
+            modal_login.classList.remove('oppen');
+            document.querySelector('.model-recovery').classList.add('oppen');
+        }
+
+        document.querySelector('.js-close').onclick = function(e) {
+            document.querySelector('.model-recovery').classList.remove('oppen');
+        }
+
+        function checkRecovery() {
+            var usip = document.getElementById('username-ip').value
+            var emip = document.getElementById('email-ip').value
+            var psip = document.getElementById('password-ip').value
+            var users = localStorage.getItem(usip);
+            var data = JSON.parse(users)
+            console.log(data)
+            console.log(users)
+            if (!users) {
+                const status = document.getElementById("reco-status");
+                status.style.color = "red";
+                status.innerText = "Thông tin tài khoản không hợp lệ !";
+            }
+            else if (emip != data.email) {
+                const status = document.getElementById("reco-status");
+                status.style.color = "red";
+                status.innerText = "Thông tin tài khoản không hợp lệ !";
+            }
+            else if (emip == data.email && psip == '') {
+                const status = document.getElementById("reco-status");
+                status.style.color = "red";
+                status.innerText = "Vui lòng nhập mật khẩu mới";
+            }
+            else if (emip == data.email && psip != ''){
+                const status = document.getElementById("reco-status");
+                status.style.color = "green";
+                status.innerText = "Đổi mật khẩu thành công";
+                var newUS = {
+                    username: usip,
+                    email: emip,
+                    password:psip
+                }
+                var json = JSON.stringify(newUS)
+                localStorage.setItem(usip, json)
+                setTimeout(function(){
+                    modal_login.classList.add('oppen')
+                    document.querySelector('.model-recovery').classList.remove('oppen');
+                    document.getElementById('username-ip').value = '';
+                    document.getElementById('password-ip').value = '';
+                    document.getElementById('email-ip').value = '';
+                    status.innerText = "";
+                },800);
+
+            }
+            
+        }
+
+        // Set donate coin 
+        var coin = {
+        cur_coin : 10000,
+        donated_coin : 300,
+        }
+        var json = JSON.stringify(coin);
+        localStorage.setItem('user_coin',json);
+
     </script>
 </body>
 </html>

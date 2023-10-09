@@ -312,69 +312,194 @@
     </div>
    </div>
    
-   <div class="model-login js-moo">
+   <div class="model-login js-moo ">
        <div class="subModel">
         <div class="avt">
             <i class="closee ti-close js-closee"></i>
         </div>
-            <h2>Sign in</h2>
+            <h2 style="font-size:30px">Đăng Nhập</h2>
             <form id="login-form">
                 <label class="content" for="username">
                     <i class=" icon ti-user"></i>
-                    User name:</label>
+                    Tên tài khoản:</label>
                 <div></div>
                 <input type="text" id="username" required><br>
                 <label class="content" for="password">
                     <i class="icon ti-lock"></i>
-                    Password:</label>
+                    Mật khẩu:</label>
                 <div></div>
 
                 <input type="password" id="password" required><br>
                 <input class="miss" type="checkbox" > Remember me <br>
-                <button type="button" onclick="checkLogin()">Login</button><br>
-               
+                <button type="button" onclick="checkLogin()">Login</button><br>           
                     <a class="help" href="https://nguontinhyeu.com/chi-co-troi-cuu/">Need help ?</a>
+                    <div class="forgot">Forgot password ?</div>
                 <div id="login-status"></div>
             </form>
-        </div>
-       
+        </div>      
    </div>
  
-    <!-- <script src = "./scripts.js"> 
-      
-    </script> -->
+    <!-- Recovery Password -->
+    <div class=" js-moo model-recovery" >
+        <div class="subModel">
+         <div class="avt">
+             <i class="closee ti-close js-close"></i>
+         </div>
+             <h2 style="font-size:30px">Lấy lại mật khẩu</h2>
+             <form id="recovery-form">
+                 <label class="content" for="username-ip">
+                     <i class=" icon ti-user"></i>
+                     Tên tài khoản:</label>
+                 <input type="text" id="username-ip" class="usip" required><br>
+
+                 <label class="content" for="email-ip">
+                    <i class=" icon ti-user"></i>
+                    Email:</label>
+                <input type="text" id="email-ip" class="emip" required><br>
+
+                 <label class="content" for="password-ip">
+                     <i class="icon ti-lock"></i>
+                     Mật khẩu mới:</label>
+
+                 <input type="password" id="password-ip" class="pwip" required><br>
+
+                 <button type="button" onclick="checkRecovery()">Done</button><br>           
+                 <div id="reco-status"></div>
+             </form>
+         </div>      
+    </div>
     <script>
-             function checkLogin(){
-             const username = document.getElementById("username").value;
-             const password = document.getElementById("password").value;
+  //      var user = {
+  //          username : '123',
+  //          email : '123@gmail.com',
+  //          password : '123'
+  //      }
+  //      var jsons = JSON.stringify(user);
+  //      localStorage.setItem('123',jsons);
 
-             if (username === "123" && password === "123") {
-                 
-                 const status = document.getElementById("login-status");
-                 status.style.color = "green";
-                 status.innerText = "Đăng nhập thành công!";
-                 window.location.href = "http://127.0.0.1:5500/LogIn.html";
-                
-             } else {
-                 const status = document.getElementById("login-status");
-                 status.style.color = "red";
-                 status.innerText = "Thông tin đăng nhập không hợp lệ !";
-               
-             }
-          }          
+        function checkLogin(){
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            var users = localStorage.getItem(username);
+            console.log(users);
+            var data = JSON.parse(users);
+            console.log(data);
+            if (!users) {
+                const status = document.getElementById("login-status");
+                status.style.color = "red";
+                status.innerText = "Thông tin đăng nhập không hợp lệ !";
+            }
+            else if (password == ''){
+                const status = document.getElementById("login-status");
+                status.style.color = "red";
+                status.innerText = "Thông tin đăng nhập không hợp lệ !";
+            }
+            else if (username == data.username && password == data.password) {
+                const status = document.getElementById("login-status");
+                status.style.color = "green";
+                status.innerText = "Đăng nhập thành công!";
+                window.location.href = "http://127.0.0.1:5500/LogIn.html";
+            }
+
+            //if (username === "123" && password === "123") {
+            //    
+            //    const status = document.getElementById("login-status");
+            //    status.style.color = "green";
+             //   status.innerText = "Đăng nhập thành công!";
+             //   window.location.href = "http://127.0.0.1:5500/LogIn.html";
+            //
+           // } else {
+          //      const status = document.getElementById("login-status");
+          //      status.style.color = "red";
+         //       status.innerText = "Thông tin đăng nhập không hợp lệ !";
+          //  }
+        }
+        
+
+        const login=document.querySelector('.js-login')
+        const close_login=document.querySelector('.js-closee')
+        const modal_login=document.querySelector('.js-moo')
+        function them(){
+            modal_login.classList.add('oppen')
+        }
+        function showSmall9(){
+            modal_login.classList.remove('oppen')
+
+        }
+        login.addEventListener('click',them)
+        close_login.addEventListener('click',showSmall9)
+
+        // forgot
+        const forgot_pass = document.querySelector('.forgot')
+        console.log(forgot_pass)
+        forgot_pass.onclick = function(){
+            console.log(12213)
+            modal_login.classList.remove('oppen');
+            document.querySelector('.model-recovery').classList.add('oppen');
+        }
+
+        document.querySelector('.js-close').onclick = function(e) {
+            document.querySelector('.model-recovery').classList.remove('oppen');
+        }
+
+        function checkRecovery() {
+            document.getElementById("reco-status").innerHTML ="";
+            var usip = document.getElementById('username-ip').value
+            var emip = document.getElementById('email-ip').value
+            var psip = document.getElementById('password-ip').value
+            var users = localStorage.getItem(usip);
+            var data = JSON.parse(users)
+            console.log(data)
+            console.log(users)
+            if (!users) {
+                const status = document.getElementById("reco-status");
+                status.style.color = "red";
+                status.innerText = "Thông tin tài khoản không hợp lệ !";
+            }
+            else if (emip != data.email) {
+                const status = document.getElementById("reco-status");
+                status.style.color = "red";
+                status.innerText = "Thông tin tài khoản không hợp lệ !";
+            }
+            else if (emip == data.email && psip == '') {
+                const status = document.getElementById("reco-status");
+                status.style.color = "red";
+                status.innerText = "Vui lòng nhập mật khẩu mới";
+            }
+            else if (emip == data.email && psip != ''){
+                const status = document.getElementById("reco-status");
+                status.style.color = "green";
+                status.innerText = "Đổi mật khẩu thành công";
+                var newUS = {
+                    username: usip,
+                    email: emip,
+                    password:psip
+                }
+                var json = JSON.stringify(newUS)
+                localStorage.setItem(usip, json)
+                setTimeout(function(){
+                    modal_login.classList.add('oppen')
+                    document.querySelector('.model-recovery').classList.remove('oppen');
+                    usip = ''
+                    psip = ''
+                    emip = '';
+                    status.innerText = "";
+                },800);
 
 
-             const login=document.querySelector('.js-login')
-             const close_login=document.querySelector('.js-closee')
-             const modal_login=document.querySelector('.js-moo')
-           function them(){
-              modal_login.classList.add('oppen')
-           }
-           function showSmall9(){
-              modal_login.classList.remove('oppen')
-           }
-           login.addEventListener('click',them)
-           close_login.addEventListener('click',showSmall9)
+
+            }
+
+        }
+
+        // Set donate coin 
+        var coin = {
+        cur_coin : 10000,
+        donated_coin : 300,
+        }
+        var json = JSON.stringify(coin);
+        localStorage.setItem('user_coin',json);
 
     </script>
 </body>

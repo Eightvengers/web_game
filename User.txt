@@ -1,0 +1,219 @@
+User Info - Start
+
+<li id="user">
+    <div class="user_avt">
+        <img src="./assets/images/user_img.jpg" alt="">
+    </div>
+    <div class="user_info">
+        <span id="username " class="cur_username">Username: Do Quan</span>
+        <br>
+        <span>Level: 99</span>
+        <br>
+        <span>Current coin: <span class="cur_coin">1000</span>     <i class="fa-brands fa-bitcoin"></i></span>
+        <br>
+        <span>Donated: <span class="donated_coin">300</span>     <i class="fa-brands fa-bitcoin"></i></span>
+        <br>
+        <a class="logout_btn" href="./index.html">Log out</a>
+    </div>
+</li>
+
+CSS -----------
+
+.header__options ul li#user{
+    position: relative;
+    width: 41px;
+    height: 41px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
+
+.header__options ul li#user .user_avt{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* width: 100%;
+    height: 100%; */
+}
+
+.user_avt img{
+    border-radius:50%;
+    width: 100%;
+    height: 100%;
+}
+
+.user_info::before {
+    position: absolute;
+    content: "";
+    border-width: 10px 15px 10px 15px;
+    border-style: solid;
+    border-color: transparent transparent #e43d30 transparent;
+    background-color: transparent;
+    right: 7px;
+    bottom: 100%;
+    /* width: 20px; */
+    /* height: 10px; */
+}
+
+.user_info {
+    position: absolute;
+    padding: 10px;
+    background: #333;
+    color: #fff;
+    min-width: 175px;
+    top: 130%;
+    right: 0;
+    border: 2px solid #e43d30;
+    border-radius: 10px;
+    display: none;
+    transform-origin: 90% top;
+    animation: pop_qr ease-in 0.3s;
+    z-index: 1;    
+}
+
+.user_info span {
+    font-size: 15px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 3px;
+}
+
+.user_info span i {
+    color: yellow !important;
+}
+
+.header__options ul #user:hover .user_info{
+    display: block;
+}
+
+.header__options ul li#user a{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 3px; 
+    margin-top: 5px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background-color: #e43d30;
+}
+
+.header__options ul li#user:hover {
+    border : 2px solid #e43d30;
+}
+
+-- User info End
+
+-- Donate Hub - Start
+<li style="position:relative" class = "donate">
+    <i class="fa-solid fa-circle-dollar-to-slot"></i>
+    Donate
+    <div class="donate_qr_code">
+        <img src="./assets/images/z4693627166820_269b872462e032d1338500e28d6af9d7.jpg" alt="">
+        <p>Scan this QR Code for donation</p>
+    </div>
+    <div class="donate_hub">
+        <div class="close_donate_hub">
+            <i class="fa-regular fa-circle-xmark"></i>
+        </div>
+        <h3
+        style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size:20px; letter-spacing:1px">
+        Donate Hub</h3>
+        <div class="donate_amount">
+            <span style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; ">Amount : <input class ="valuee" type="text"></span>
+        </div>
+        <span class="err_msg"></span>
+        <div class="donate_btn">
+            <span>Donate</span>
+        </div>
+    </div>
+</li>
+
+CSS --
+/* Start donate hub */
+.donate_hub {
+    position: absolute;
+    display: flex;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    left : -60%;
+    top : 125%;
+    width: 200%;
+    font-size: 14px;
+    padding: 10px;
+    border: 5px solid #e43d30;
+    background-color : #222222;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.donate_amount {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    width: 100%;
+    border-radius: 15px;
+    font-family:'Courier New', Courier, monospace;
+    padding : 8px;
+    background-color: #333333;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+.donate_amount input {
+    width: 50%;
+    border: none;
+    outline: none;
+    margin-left: 5px;
+    background-color: transparent;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #fff;
+}
+
+.donate_hub .err_msg {
+    /* display: flex; */
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-left: -60px;
+    color : #e43d30;
+}
+
+.donate_hub .donate_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding : 5px;
+    width: 100%;
+    background-color: #333333;
+    border-radius: 8px;
+}
+
+.donate_hub .donate_btn:hover {
+    background-color : #e43d30;
+}
+
+.donate_hub .close_donate_hub {
+    position: absolute;
+    right: 0;
+    top: 3px;
+    font-size: 20px;
+    opacity: 0.7;
+}
+
+.donate_hub .close_donate_hub:hover {
+    opacity: 1;
+}
+
+.focus {
+    background-color: #e43d30 !important;
+    border: solid 2px #e43d30 !important;
+}
+
+.force_display_none {
+    display: none !important;
+}
+
