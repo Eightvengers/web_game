@@ -41,7 +41,7 @@ donate_btn.onclick = function(){
         err_msg.innerText = "Coin khong hop le";
     }
     else if(parseInt(amount) > parseInt(cur_coin)) {
-        err_msg.innerText = "Ban khong du coin";
+        err_msg.innerText = "You don't have enough coin";
     }
     else if(parseInt(amount) <= parseInt(cur_coin)){
         document.querySelector(".valuee").value = '';
@@ -56,7 +56,7 @@ donate_btn.onclick = function(){
         err_msg.innerText = "";
         var json = JSON.stringify(user_coin);
         localStorage.setItem("user_coin", json);
-        alert("Cam on ban da ung ho chung toi");
+        alert("Thanks for your contributions");
     }
 
 }
@@ -322,12 +322,12 @@ function checkLogin(){
    const password = document.getElementById("password").value;
 
    if (username === "123" && password === "123") {
-       document.getElementById("login-status").innerText = "Đăng nhập thành công!";
-       window.location.href = "http://127.0.0.1:5500/LogIn.html";
-       alert('Bạn đã đăng nhập thành công')
+       document.getElementById("login-status").innerText = "Login Successfully ╰(*°▽°*)╯";
+       window.location.href = "http://127.0.0.1:5501/View/LogIn.html";
+       alert('Login Successfully ╰(*°▽°*)╯')
        // Điều hướng hoặc thực hiện hành động sau khi đăng nhập ở đây.
    } else {
-       document.getElementById("login-status").innerText = "Thông tin đăng nhập không hợp lệ !";
+       document.getElementById("login-status").innerText = "Invalid information !";
    }
 }
 
@@ -347,9 +347,9 @@ close_login.addEventListener('click',showSmall9)
 
 
 function logout() {
-   var okey=confirm('Bạn thực sự muốn đăng xuất.')
+   var okey=confirm('Do you actually want to log out ?')
    if(okey){
-      window.location.href = "http://127.0.0.1:5500/index.html";
+      window.location.href = "http://127.0.0.1:5501/View/index.html";
         }
    }
    // Điều hướng đến trang đăng xuất bằng đường link
