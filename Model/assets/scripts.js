@@ -349,7 +349,7 @@ close_login.addEventListener('click',showSmall9)
 function logout() {
    var okey=confirm('Do you actually want to log out ?')
    if(okey){
-      window.location.href = "http://127.0.0.1:5501/View/index.html";
+      window.location.href = "http://127.0.0.1:5500/View/index.html";
         }
    }
    // Điều hướng đến trang đăng xuất bằng đường link
